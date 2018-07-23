@@ -1,0 +1,60 @@
+@charset "UTF-8";
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img, input, button {
+    margin: 0;
+    padding: 0;
+}
+img, input, button {
+    border: none;
+    vertical-align: middle;
+    outline-style: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+textarea {
+    resize: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/*body {
+    /!*font: 14px/150% Arial, Verdana, "\5b8b\4f53";*!/
+    font: 14px Arial, Verdana, "Microsoft YaHei";
+    color: #666;
+}*/
+
+.clearfix:after {
+    content:"";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;/*去除a标签在移动端点击时的蓝色背景*/
+}
+a:hover {
+    color: #666;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-decoration: none;
+    font-weight: normal;
+}
+
+s, i, em {
+    font-style: normal;
+    text-decoration: none;
+}
+
