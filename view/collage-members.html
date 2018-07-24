@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拼团成功</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"><!--可隐藏地址栏，仅针对IOS的Safari（注：IOS7.0版本以后，safari上已看不到效果）-->
+    <meta content="yes" name="apple-touch-fullscreen"><!--添加到主屏幕后，全屏显示-->
+    <meta content="telephone=no,email=no" name="format-detection"><!--IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /><!--避免IE使用兼容模式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"><!--仅针对IOS的Safari顶端状态条的样式（可选default/black/black-translucent ）-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+</head>
+<body>
+<div class="collage-members">
+    <header>
+        <img src="../images/mall/product-big/product-big01.png" alt="">
+    </header>
+    <section class="title">
+        <p>仅需<span>1000</span>&nbsp;积分即可成团抽奖</p>
+        <p>去哪儿网</p>
+        <div class="count-down">
+            <p>距开奖仅剩</p>
+            <p><span>4</span>&nbsp;天&nbsp;<span>00</span>&nbsp;:&nbsp;<span>32</span>&nbsp;:&nbsp;<span>16</span></p>
+        </div>
+    </section>
+    <section class="collage-members-word">拼团成员</section>
+    <section class="collage-members-list">
+        <ul>
+            <li>
+                <div class="collage-members-list-left">
+                    <div class="collage-members-head-portrait">
+                        <img src="../images/mall/error@2x.png" alt="">
+                        <img src="../images/mall/get_award@2x.png" alt="">
+                    </div>
+                    <div class="collage-members-information">
+                        <p><span>恭喜&nbsp;</span>勾心然中得大奖</p>
+                        <!--<p>勾心然</p>-->
+                        <p>2018-06-24 12:32:23</p>
+                    </div>
+                </div>
+                <div class="collage-members-list-right">
+                    <span>100</span> 积分
+                </div>
+            </li>
+            <li>
+                <div class="collage-members-list-left">
+                    <div class="collage-members-head-portrait">
+                        <img src="../images/mall/success@2x.png" alt="">
+                    </div>
+                    <div class="collage-members-information">
+                        <p>大智</p>
+                        <p>2018-06-24 12:32:23</p>
+                    </div>
+                </div>
+                <div class="collage-members-list-right">
+                    <span>100</span> 积分
+                </div>
+            </li>
+            <li>
+                <div class="collage-members-list-left">
+                    <div class="collage-members-head-portrait">
+                        <img src="../images/mall/success@2x.png" alt="">
+                    </div>
+                    <div class="collage-members-information">
+                        <p>大智</p>
+                        <p>2018-06-24 12:32:23</p>
+                    </div>
+                </div>
+                <div class="collage-members-list-right">
+                    <span>100</span> 积分
+                </div>
+            </li>
+            <li>
+                <div class="collage-members-list-left">
+                    <div class="collage-members-head-portrait">
+                        <img src="../images/mall/success@2x.png" alt="">
+                    </div>
+                    <div class="collage-members-information">
+                        <p>大智</p>
+                        <p>2018-06-24 12:32:23</p>
+                    </div>
+                </div>
+                <div class="collage-members-list-right">
+                    <span>100</span> 积分
+                </div>
+            </li>
+            <li>
+                <div class="collage-members-list-left">
+                    <div class="collage-members-head-portrait">
+                        <img src="../images/mall/success@2x.png" alt="">
+                    </div>
+                    <div class="collage-members-information">
+                        <p>大智</p>
+                        <p>2018-06-24 12:32:23</p>
+                    </div>
+                </div>
+                <div class="collage-members-list-right">
+                    <span>100</span> 积分
+                </div>
+            </li>
+            <li>
+                <div class="collage-members-list-left">
+                    <div class="collage-members-head-portrait">
+                        <img src="../images/mall/success@2x.png" alt="">
+                    </div>
+                    <div class="collage-members-information">
+                        <p>大智</p>
+                        <p>2018-06-24 12:32:23</p>
+                    </div>
+                </div>
+                <div class="collage-members-list-right">
+                    <span>100</span> 积分
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="btn-collage">
+        <button>立即参团</button>
+    </section>
+</div>
+
+<!--询问是否兑换-->
+<div class="popup confirm-popup" id="whetherExchange">
+    <div class="pop-body clearfix">
+        <p>确定花费<span>100</span>积分参与拼团？</p>
+        <button class="btn-cancel">取消</button>
+        <button class="btn-sure">确定</button>
+    </div>
+</div>
+<!--手机号未注册-->
+<div class="popup" id="unregistered">
+    <div class="pop-body">
+        <p>请先完成手机号注册</p>
+        <button>知道了</button>
+    </div>
+</div>
+<!--未填收货信息-->
+<div class="popup" id="noReceiveAddress">
+    <div class="pop-body">
+        <p>请先填写配送信息</p>
+        <button>知道了</button>
+    </div>
+</div>
+<!--积分不足弹窗-->
+<div class="popup" id="lackIntegral">
+    <div class="pop-body">
+        <p><img src="../images/mall/error@2x.png" alt="">积分不足</p>
+        <button>知道了</button>
+    </div>
+</div>
+<!--拼团成功-->
+<div class="popup" id="exchangeSuccess">
+    <div class="pop-body">
+        <p><img src="../images/mall/success@2x.png" alt="">恭喜您，拼团成功</p>
+        <button>知道了</button>
+    </div>
+</div>
+<!--拼团失败-->
+<div class="popup popup-error2" id="collageFailure">
+    <div class="pop-body">
+        <p><img src="../images/mall/error@2x.png" alt="">很遗憾</p>
+        <p>拼团人数已满，您未能拼团成功</p>
+        <button>知道了</button>
+    </div>
+</div>
+
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../js/index.js"></script>
+</body>
+</html>

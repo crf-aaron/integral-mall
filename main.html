@@ -62,7 +62,7 @@
         <div class="exchange-list">
             <ul class="clearfix">
                 <li>
-                    <a href="">
+                    <a href="./view/exchange-lottery.html">
                         <p>去哪儿网火车票立减券</p>
                         <p>
                             <span>0</span>
@@ -72,7 +72,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./view/exchange-practicality.html">
                         <p>去哪儿网火车票立减券</p>
                         <p>
                             <span>0</span>
@@ -82,7 +82,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./view/exchange-lottery.html">
                         <p>去哪儿网火车票立减券</p>
                         <p>
                             <span>0</span>
@@ -92,7 +92,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./view/exchange-practicality.html">
                         <p>去哪儿网火车票立减券</p>
                         <p>
                             <span>0</span>
@@ -113,7 +113,7 @@
         <div class="secondKill-list">
             <ul class="clearfix">
                 <li>
-                    <a href="">
+                    <a href="./view/seckill.html">
                         <p>去哪儿网火车票立减券</p>
                         <p>
                             <span>0</span>
@@ -217,7 +217,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./view/collage.html">
                         <img src="images/mall/product/product03.png" alt="">
                         <p>去哪儿网火车票立减券</p>
                         <p>
@@ -325,5 +325,24 @@
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/swiper/js/swiper.jquery.min.js"></script>
 <script src="js/index.js"></script>
+<script>
+    $(function () {
+        /*banner*/
+        var swiper1 = new Swiper('.swiper1', {
+            autoplay: 3000,//可选选项，自动滑动
+            loop: true,
+            autoplayDisableOnInteraction: false,//滑动以后是否禁止autoplay
+            // 分页器
+            pagination: '.swiper-pagination',
+        });
+        /*news轮播*/
+        var swiper2 = new Swiper('.swiper2', {
+            direction: 'vertical',
+            autoplay: 3000,//可选选项，自动滑动
+            loop: true,
+            autoplayDisableOnInteraction: false
+        });
+    })
+</script>
 </body>
 </html>

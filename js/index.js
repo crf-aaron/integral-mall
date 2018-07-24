@@ -2,20 +2,25 @@
  * Created by CRF on 2018/7/19.
  */
 $(function () {
-    /*banner*/
-    var swiper1 = new Swiper('.swiper1', {
-        autoplay: 3000,//可选选项，自动滑动
-        loop: true,
-        autoplayDisableOnInteraction: false,//滑动以后是否禁止autoplay
-        // 分页器
-        pagination: '.swiper-pagination',
+    /*积分兑换 弹窗*/
+    $('.btn-exchange').on('click',function () {
+        $('#whetherExchange').toggle();
     });
-    /*news轮播*/
-    var swiper2 = new Swiper('.swiper2', {
-        direction: 'vertical',
-        autoplay: 3000,//可选选项，自动滑动
-        loop: true,
-        autoplayDisableOnInteraction: false
+    $('.btn-sure').on('click',function () {
+        $('#whetherExchange').toggle();
+    });
+    $('.btn-cancel').on('click',function () {
+        $('#whetherExchange').toggle();
+    });
+    /*编辑收货地址*/
+    $('.address').on('click',function () {
+        window.location.href = './address.html';
+    });
+    $('#cancel').on('click',function () {
+        window.history.go(-1);
+    });
+    $('#save').submit(function () {
+        window.history.go(-1);
     });
     /*拼团进度*/
     function progressVal(selector,num) {
@@ -25,4 +30,5 @@ $(function () {
         $('.progress-value').width(proWidth);
     }
     progressVal('.pro-val',20);
+
 })

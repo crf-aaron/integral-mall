@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>积分兑换</title>
+    <title>积分秒杀</title>
     <meta content="yes" name="apple-mobile-web-app-capable"><!--可隐藏地址栏，仅针对IOS的Safari（注：IOS7.0版本以后，safari上已看不到效果）-->
     <meta content="yes" name="apple-touch-fullscreen"><!--添加到主屏幕后，全屏显示-->
     <meta content="telephone=no,email=no" name="format-detection"><!--IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别-->
@@ -13,26 +13,43 @@
     <link rel="stylesheet" href="../css/index.css"/>
 </head>
 <body>
-<div class="exchange-lottery">
+<div class="exchange-practicality seckill">
     <header>
         <img src="../images/mall/product-big/product-big01.png" alt="">
     </header>
     <section class="title">
-        <p><span>0</span>&nbsp;积分</p>
-        <p>去哪儿网火车票立减券</p>
+        <p><span>1000</span>&nbsp;积分</p>
+        <p>去哪儿网</p>
+        <div class="count-down">
+            <p>下次抢购时间</p>
+            <p><span>7</span>&nbsp;月&nbsp;<span>4</span>&nbsp;日&nbsp;<span>00</span>&nbsp;:&nbsp;<span>32</span>&nbsp;:&nbsp;<span>16</span></p>
+        </div>
+    </section>
+    <section class="address">
+        <div class="address-top">
+            <div class="address-top-left"><span>配送至：</span><span>张三</span> <span>13552398888</span></div>
+            <div class="address-top-right">
+                <img src="../images/mall/location02@2x.png" alt="">
+            </div>
+        </div>
+        <div class="address-bottom">
+            <div class="address-bottom-left">
+                <img src="../images/mall/location@2x.png" alt="">
+            </div>
+            <p class="address-bottom-right">华彬大厦</p>
+        </div>
     </section>
     <section class="detail">
-        <p>详细说明</p>
-        <p>1.累计积分达到100并且完成手机号码注册时可免费兑换；</p>
-        <p>2.先关注公众号，成功后点击兑换成功后跳转至第三方网页领取奖励。</p>
+        <p>详情：</p>
+        <p>商品详情商品详情商品详情商品详情商品详情详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情</p>
     </section>
-    <button class="btn-exchange">立即兑换</button>
+    <button class="btn-exchange">立即抢购</button>
 </div>
 
 <!--询问是否兑换-->
 <div class="popup confirm-popup" id="whetherExchange">
     <div class="pop-body clearfix">
-        <p>确定花费<span>0</span>积分兑换？</p>
+        <p>确定花费<span>0</span>积分秒杀？</p>
         <button class="btn-cancel">取消</button>
         <button class="btn-sure">确定</button>
     </div>
@@ -44,6 +61,13 @@
         <button>知道了</button>
     </div>
 </div>
+<!--未填收货信息-->
+<div class="popup" id="noReceiveAddress">
+    <div class="pop-body">
+        <p>请先填写配送信息</p>
+        <button>知道了</button>
+    </div>
+</div>
 <!--积分不足弹窗-->
 <div class="popup" id="lackIntegral">
     <div class="pop-body">
@@ -51,10 +75,18 @@
         <button>知道了</button>
     </div>
 </div>
-<!--兑换成功-->
+<!--秒杀成功-->
 <div class="popup" id="exchangeSuccess">
     <div class="pop-body">
-        <p><img src="../images/mall/success@2x.png" alt="">恭喜您，兑换成功</p>
+        <p><img src="../images/mall/success@2x.png" alt="">恭喜您，秒杀成功</p>
+        <button>知道了</button>
+    </div>
+</div>
+<!--秒杀失败-->
+<div class="popup popup-error2" id="collageFailure">
+    <div class="pop-body">
+        <p><img src="../images/mall/error@2x.png" alt="">很遗憾</p>
+        <p>秒杀失败，下次再来吧~</p>
         <button>知道了</button>
     </div>
 </div>

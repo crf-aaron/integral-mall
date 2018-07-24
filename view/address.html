@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>编辑地址</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"><!--可隐藏地址栏，仅针对IOS的Safari（注：IOS7.0版本以后，safari上已看不到效果）-->
+    <meta content="yes" name="apple-touch-fullscreen"><!--添加到主屏幕后，全屏显示-->
+    <meta content="telephone=no,email=no" name="format-detection"><!--IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /><!--避免IE使用兼容模式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"><!--仅针对IOS的Safari顶端状态条的样式（可选default/black/black-translucent ）-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+</head>
+<body>
+<div class="receive-address">
+    <form action="">
+        <ul>
+            <li>
+                <label for="name">收货人姓名</label><input type="text" id="name" name="name" placeholder="请输入收货人姓名">
+            </li>
+            <li>
+                <label for="phone">手机号码</label><input type="text" id="phone" name="phone" placeholder="请输入手机号码">
+            </li>
+            <li>
+                <label for="address">地址</label><input type="text" id="address" name="address" placeholder="请选择收货地址">
+            </li>
+            <li>
+                <label for="detailAddress">详细地址</label><textarea type="text" id="detailAddress" name="detailAddress" placeholder="请输入详细地址"></textarea>
+            </li>
+        </ul>
+        <div class="save-address clearfix">
+            <input type="submit" id="save" value="保存地址">
+            <input type="button" id="cancel" value="取消">
+        </div>
+    </form>
+</div>
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../js/index.js"></script>
+</body>
+</html>
