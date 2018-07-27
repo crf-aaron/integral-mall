@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>个人资料</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"><!--可隐藏地址栏，仅针对IOS的Safari（注：IOS7.0版本以后，safari上已看不到效果）-->
+    <meta content="yes" name="apple-touch-fullscreen"><!--添加到主屏幕后，全屏显示-->
+    <meta content="telephone=no,email=no" name="format-detection"><!--IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /><!--避免IE使用兼容模式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"><!--仅针对IOS的Safari顶端状态条的样式（可选default/black/black-translucent ）-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+</head>
+<body>
+<div class="personal-data">
+    <header class="header">
+        <div class="head-portrait">
+            <img src="../images/mall/get_award@2x.png" alt="">
+        </div>
+        <p>注册时间&nbsp;<span>2018-07-26</span></p>
+    </header>
+    <div class="personal-data-list">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <div class="list-left">
+                        <img src="../images/mine/wechat@2x.png" alt=""><span>微信昵称</span>
+                    </div>
+                    <div class="list-right"><span>张三</span></div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" id="phone">
+                    <div class="list-left">
+                        <img src="../images/mine/phone@2x.png" alt=""><span>手机号</span>
+                    </div>
+                    <div class="list-right"><span>18848956762</span><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="list-left">
+                        <img src="../images/mine/sex@2x.png" alt=""><span>性别</span>
+                    </div>
+                    <div class="list-right"><span>男</span></div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="list-left">
+                        <img src="../images/mine/area@2x.png" alt=""><span>地区</span>
+                    </div>
+                    <div class="list-right"><span>北京海淀</span></div>
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="./address.html">
+                    <div class="list-left">
+                        <img src="../images/mine/register@2x.png" alt=""><span>收货人姓名</span>
+                    </div>
+                    <div class="list-right"><span>请填写收货人姓名</span><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+            <li>
+                <a href="./address.html">
+                    <div class="list-left">
+                        <img src="../images/mine/phone02@2x.png" alt=""><span>收货人电话</span>
+                    </div>
+                    <div class="list-right"><span>请填写手机号</span><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+            <li>
+                <a href="./address.html">
+                    <div class="list-left">
+                        <img src="../images/mine/add@2x.png" alt=""><span>收货地址</span>
+                    </div>
+                    <div class="list-right"><span>请填写收货地址</span><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--注册手机号弹窗-->
+<div class="phone-popup">
+    <div class="popup-body">
+        <div class="close" id="close">
+            <img src="../images/mine/close@2x.png" alt="">
+        </div>
+        <ul>
+            <li>
+                <span>手机号：</span>
+                <input type="text">
+            </li>
+            <li>
+                <span>验证码：</span>
+                <input type="text">
+                <button>获取验证码</button>
+            </li>
+        </ul>
+        <button>提交</button>
+    </div>
+</div>
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../js/index.js"></script>
+</body>
+</html>

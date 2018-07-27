@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"><!--可隐藏地址栏，仅针对IOS的Safari（注：IOS7.0版本以后，safari上已看不到效果）-->
+    <meta content="yes" name="apple-touch-fullscreen"><!--添加到主屏幕后，全屏显示-->
+    <meta content="telephone=no,email=no" name="format-detection"><!--IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /><!--避免IE使用兼容模式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"><!--仅针对IOS的Safari顶端状态条的样式（可选default/black/black-translucent ）-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+</head>
+<body>
+<div class="mine">
+    <header class="header">
+        <div class="cont">
+            <div class="cont-left">
+                <div class="head-portrait">
+                    <img src="../images/mall/get_award@2x.png" alt="">
+                </div>
+                <div class="cont-left-txt">
+                    <p>张三</p>
+                    <p>累计获得积分：<span>500</span></p>
+                </div>
+            </div>
+            <div class="cont-right">
+                <button id="signIn">签到</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../images/mine/icon@2x.png" alt="">
+            <div class="progress">
+                <div class="progress-bar">
+                    <div class="progress-val"></div>
+                </div>
+                <div class="progress-num">
+                    <span>0</span><span>500</span><span>2000</span><span>10000</span><span>20000</span>
+                </div>
+                <div class="line"></div>
+                <p>当前积分：<span>200</span></p>
+            </div>
+        </div>
+    </header>
+    <div class="list">
+        <ul>
+            <li>
+                <a href="./my-integral.html">
+                    <div class="list-left">
+                        <img src="../images/mine/jifen@2x.png" alt=""><span>我的积分</span>
+                    </div>
+                    <div class="list-right"><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+            <li>
+                <a href="./record.html">
+                    <div class="list-left">
+                        <img src="../images/mine/record@2x.png" alt=""><span>兑换记录</span>
+                    </div>
+                    <div class="list-right"><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+            <li>
+                <a href="./rule.html">
+                    <div class="list-left">
+                        <img src="../images/mine/jifen_strategy@2x.png" alt=""><span>积分攻略</span>
+                    </div>
+                    <div class="list-right"><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div class="list-left">
+                        <img src="../images/mine/award@2x.png" alt=""><span>活动&奖品</span>
+                    </div>
+                    <div class="list-right"><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+            <li>
+                <a href="./personal-data.html">
+                    <div class="list-left">
+                        <img src="../images/mine/register@2x.png" alt=""><span>个人注册</span>
+                    </div>
+                    <div class="list-right"><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div class="list-left">
+                        <img src="../images/mine/invite@2x.png" alt=""><span>邀请好友</span>
+                    </div>
+                    <div class="list-right"><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div class="list-left">
+                        <img src="../images/mine/attention@2x.png" alt=""><span>关注我们</span>
+                    </div>
+                    <div class="list-right"><img src="../images/mine/right_arrow@2x.png" alt=""></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--底部导航-->
+<nav class="nav">
+    <ul class="clearfix">
+        <li>
+            <a href="../main.html">
+                <img src="../images/mall/home_no.png" alt=""/>
+                <span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="../images/mall/mine_yes.png" alt=""/>
+                <span class="nav-active">我的</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!--签到成功弹窗-->
+<div class="signIn-popup" id="signInSuccess">
+    <div class="popup-body">
+        <img src="../images/mine/light.png" alt="">
+        <div class="popup-cont">
+            <img src="../images/mine/gold_coin@2x.png" alt="">
+            <p><span>+1</span>&nbsp;积分</p>
+        </div>
+    </div>
+    <div class="drifting">
+        <img src="../images/mine/bg@2x.png" alt="">
+    </div>
+</div>
+<!--已经签过到 弹窗-->
+<div class="signIn-popup" id="alreadySignIn">
+    <div class="popup-body">
+        <img src="../images/mine/light.png" alt="">
+        <div class="popup-cont">
+            <img src="../images/mine/gold_coin02@2x.png" alt="">
+            <p>谢谢</p>
+        </div>
+    </div>
+    <div class="drifting">
+        <img src="../images/mine/bg@2x.png" alt="">
+    </div>
+</div>
+
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../js/index.js"></script>
+</body>
+</html>
