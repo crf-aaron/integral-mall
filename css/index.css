@@ -1217,6 +1217,60 @@ img {
   bottom: -2.53333333vw;
   right: 17.33333333vw;
 }
+.sign-in .sign-header {
+  width: 100%;
+  height: 11.73333333vw;
+  padding: 2.53333333vw 4vw 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.sign-in .sign-header span {
+  display: inline-block;
+  width: 14.28%;
+  text-align: center;
+  font-size: 3.2vw;
+  color: #999999;
+}
+.sign-in .sign-list {
+  width: 100%;
+  padding: 0 4vw;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.sign-in .sign-list li {
+  width: 14.28%;
+  height: 12vw;
+  float: left;
+  font-size: 3.2vw;
+  color: #333333;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.sign-in .sign-list li span {
+  width: 7.73333333vw;
+  height: 7.73333333vw;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  border-radius: 50%;
+}
+.sign-in .sign-list li .sign-day {
+  background-color: #c8b791;
+}
+.sign-in .sign-list li .today {
+  background-color: #bf9345;
+  color: #ffffff;
+}
 /*我的积分*/
 .my-integral .header {
   width: 100%;

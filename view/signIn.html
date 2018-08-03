@@ -12,23 +12,162 @@
     <link rel="stylesheet" href="../css/base.css"/>
     <link rel="stylesheet" href="../css/index.css"/>
 </head>
-<body>
+<body style="background-color: #ffffff;">
 <div class="sign-in">
     <header class="header">
         <img src="../images/mine/qiandao@2x.png" alt="">
-        <p>第&nbsp;<span>3</span>&nbsp;天</p>
+        <p>第&nbsp;<span>0</span>&nbsp;天</p>
         <div class="integral-total">
             <p>积分&nbsp;<span>6分</span></p>
             <button class="btn-rule">积分规则</button>
         </div>
     </header>
     <div class="date-title">
-        <p>2018年7月26日</p>
-        <span></span>
-        <span></span>
+        <p id="time">2018年7月26日</p>
     </div>
+    <div class="sign-header">
+        <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+    </div>
+    <ul class="sign-list clearfix" id="signList">
+        <li><span class="sign-day">1</span></li>
+        <li><span class="today">2</span></li>
+        <li><span>3</span></li>
+        <li><span>4</span></li>
+        <li><span>5</span></li>
+        <li><span>6</span></li>
+        <li><span>7</span></li>
+        <li><span>8</span></li>
+        <li><span>9</span></li>
+        <li><span>10</span></li>
+        <li><span>11</span></li>
+        <li><span>12</span></li>
+        <li><span>13</span></li>
+        <li><span>14</span></li>
+        <li><span>15</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>3</span></li>
+        <li><span>29</span></li>
+        <li><span>30</span></li>
+    </ul>
 </div>
+<!--日历-->
+<script type="text/html" id="signListTpl">
+    <li><span class="{{className}}">{{date}}</span></li>
+</script>
 <script src="../lib/jquery/jquery.min.js"></script>
+<script src="../lib/template.js"></script>
 <script src="../js/index.js"></script>
+<!--<script src="../js/gather.js"></script>-->
+<script>
+    $(function () {
+        var monthFirst = 0;//每个月的第一天从哪个方格开始的
+        var monthTotalDay = 0; //每个月的总天数
+        var today = 0;
+        getTime();
+        //获取当前日期
+        function getTime(){
+            $.ajax({
+                url : "/user/getTime?t=" + new Date().getTime(),
+                type : 'GET',
+                contentType : 'application/json',
+                success : function(data) {
+                    var time = gather.formatDateTime(data.object);
+                    if(data.status){
+                        $("#time").html(time);
+                        var myDate = new Date(data.object);
+                        today = new Date(data.object).toDateString().slice(8,10);
+                        //console.log(today.toDateString().slice(8,10));
+                        monthFirst = new Date(myDate.getFullYear(), parseInt(myDate.getMonth()), 1).getDay();
+                        var d = new Date(myDate.getFullYear(), parseInt(myDate.getMonth() + 1), 0);
+                        monthTotalDay = d.getDate(); //获取当前月的天数
+                        getListRecord();
+                    }else{
+                        if(data.message == "101"){
+                            alert("身份过期，请重新授权登录商城");
+                        }else{
+                            alert("获取数据出错");
+                        }
+                    }
+                },
+                error : function(jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+        };
+        //获取日历
+        function getListRecord(){
+            $.ajax({
+                url : "/user/listRecord?t=" + new Date().getTime(),
+                type : 'GET',
+                contentType : 'application/json',
+                success : function(data) {
+                    console.log(data);
+                    if(data.status){
+                        var totalDay = data.object.length;
+                        var totalIntegral = 0,integral;
+                        var signMark = [];
+                        var className = '';
+
+                        for (var k = 0; k < totalDay; k++) {
+                            integral = parseInt(data.object[k].integral);
+                            totalIntegral += integral;
+                            signMark[k] = data.object[k].signMark.substring(6);
+                        }
+                        console.log(signMark);
+                        $("#totalDay").html(totalDay);
+                        $("#totalIntegral").html(totalIntegral);
+
+                        for(var i = 0; i < 42; i++) {
+                            if( i >= monthFirst && i < (monthFirst + monthTotalDay)){
+                                className = "";
+                                for (var j = 0;  j < signMark.length; j++){
+                                    if( signMark[j] == i - monthFirst + 1 ){
+                                        className = 'sign-day';
+                                    }
+                                }
+                                if(today == i - monthFirst + 1){
+                                    className = 'today';
+                                }
+                                var html = template('signListTpl', {
+                                    className : className,
+                                    date : i - monthFirst + 1 ,
+                                });
+                                $("#signList").html(html);
+                            }else{
+                                var html = template('signListTpl', {
+                                    className : '',
+                                    date : '' ,
+                                });
+                                $("#signList").html(html);
+                            }
+                        }
+
+                    }else{
+                        if(data.message == "101"){
+                            alert("身份过期，请重新授权登录商城");
+                        }else{
+                            alert("获取数据出错");
+                        }
+
+                    }
+                },
+                error : function(jqXHR, textStatus, errorThrown) {
+
+                }
+            });
+        };
+    })
+</script>
 </body>
 </html>

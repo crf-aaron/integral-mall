@@ -1033,6 +1033,45 @@ img {
       right: 130/@vw;
     }
   }
+  .sign-header {
+    width: 100%;
+    height: 88/@vw;
+    padding: 19/@vw 30/@vw 0;
+    .box-sizing();
+    .flex();
+    span {
+      display: inline-block;
+      width: 14.28%;
+      text-align: center;
+      font-size: 24/@vw;
+      color: #999999;
+    }
+  }
+  .sign-list {
+    width: 100%;
+    padding: 0 30/@vw;
+    .box-sizing();
+    li {
+      width: 14.28%;
+      height: 90/@vw;
+      float: left;
+      font-size: 24/@vw;
+      color: #333333;
+      .flex();
+      span {
+        .vw-w-h(58,58);
+        .flex();
+        border-radius: 50%;
+      }
+      .sign-day{
+        background-color: #c8b791;
+      }
+      .today{
+        background-color: #bf9345;
+        color: #ffffff;
+      }
+    }
+  }
 }
 /*我的积分*/
 .my-integral {
