@@ -36,10 +36,10 @@
                     <div class="progress-val"></div>
                 </div>
                 <div class="progress-num">
-                    <span>0</span><span>500</span><span>2000</span><span>10000</span><span>20000</span>
+                    <span>0</span><span>250</span><span>500</span><span>600</span><span>1000</span>
                 </div>
                 <div class="line"></div>
-                <p>当前积分：<span>200</span></p>
+                <p>当前积分：<span id="currentNum">200</span></p>
             </div>
         </div>
     </header>
@@ -150,5 +150,14 @@
 
 <script src="../lib/jquery/jquery.min.js"></script>
 <script src="../js/index.js"></script>
+<script>
+    $(function () {
+        //等级进度
+        var currentNum = $('#currentNum').text();
+        var width = $('.progress-bar').width();
+        var proWidth = currentNum/1000 * width;
+        $('.progress-val').width(proWidth);
+    });
+</script>
 </body>
 </html>

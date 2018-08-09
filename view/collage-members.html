@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>拼团成功</title>
+    <title>拼团成员</title>
     <meta content="yes" name="apple-mobile-web-app-capable"><!--可隐藏地址栏，仅针对IOS的Safari（注：IOS7.0版本以后，safari上已看不到效果）-->
     <meta content="yes" name="apple-touch-fullscreen"><!--添加到主屏幕后，全屏显示-->
     <meta content="telephone=no,email=no" name="format-detection"><!--IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别-->
@@ -18,155 +18,148 @@
         <img src="../images/mall/product-big/product-big01.png" alt="">
     </header>
     <section class="title">
-        <p>仅需<span>1000</span>&nbsp;积分即可成团抽奖</p>
+        <p>仅需<span id="integralNum">100</span>&nbsp;积分即可成团抽奖</p>
         <p>去哪儿网</p>
-        <div class="count-down">
+        <div class="count-down" id="countDown">
             <p>距开奖仅剩</p>
             <p><span><i>0</i><i>0</i></span>&nbsp;天&nbsp;<span><i>0</i><i>0</i></span>&nbsp;:&nbsp;<span><i>0</i><i>0</i></span>&nbsp;:&nbsp;<span><i>0</i><i>0</i></span></p>
         </div>
     </section>
     <section class="collage-members-word">拼团成员</section>
     <section class="collage-members-list">
-        <ul>
-            <li>
-                <div class="collage-members-list-left">
-                    <div class="collage-members-head-portrait">
-                        <img src="../images/mall/error@2x.png" alt="">
-                        <img src="../images/mall/get_award@2x.png" alt="">
-                    </div>
-                    <div class="collage-members-information">
-                        <p><span>恭喜&nbsp;</span>勾心然中得大奖</p>
-                        <!--<p>勾心然</p>-->
-                        <p>2018-06-24 12:32:23</p>
-                    </div>
-                </div>
-                <div class="collage-members-list-right">
-                    <span>100</span> 积分
-                </div>
-            </li>
-            <li>
-                <div class="collage-members-list-left">
-                    <div class="collage-members-head-portrait">
-                        <img src="../images/mall/success@2x.png" alt="">
-                    </div>
-                    <div class="collage-members-information">
-                        <p>大智</p>
-                        <p>2018-06-24 12:32:23</p>
-                    </div>
-                </div>
-                <div class="collage-members-list-right">
-                    <span>100</span> 积分
-                </div>
-            </li>
-            <li>
-                <div class="collage-members-list-left">
-                    <div class="collage-members-head-portrait">
-                        <img src="../images/mall/success@2x.png" alt="">
-                    </div>
-                    <div class="collage-members-information">
-                        <p>大智</p>
-                        <p>2018-06-24 12:32:23</p>
-                    </div>
-                </div>
-                <div class="collage-members-list-right">
-                    <span>100</span> 积分
-                </div>
-            </li>
-            <li>
-                <div class="collage-members-list-left">
-                    <div class="collage-members-head-portrait">
-                        <img src="../images/mall/success@2x.png" alt="">
-                    </div>
-                    <div class="collage-members-information">
-                        <p>大智</p>
-                        <p>2018-06-24 12:32:23</p>
-                    </div>
-                </div>
-                <div class="collage-members-list-right">
-                    <span>100</span> 积分
-                </div>
-            </li>
-            <li>
-                <div class="collage-members-list-left">
-                    <div class="collage-members-head-portrait">
-                        <img src="../images/mall/success@2x.png" alt="">
-                    </div>
-                    <div class="collage-members-information">
-                        <p>大智</p>
-                        <p>2018-06-24 12:32:23</p>
-                    </div>
-                </div>
-                <div class="collage-members-list-right">
-                    <span>100</span> 积分
-                </div>
-            </li>
-            <li>
-                <div class="collage-members-list-left">
-                    <div class="collage-members-head-portrait">
-                        <img src="../images/mall/success@2x.png" alt="">
-                    </div>
-                    <div class="collage-members-information">
-                        <p>大智</p>
-                        <p>2018-06-24 12:32:23</p>
-                    </div>
-                </div>
-                <div class="collage-members-list-right">
-                    <span>100</span> 积分
-                </div>
-            </li>
-        </ul>
+        <ul id="memberList"></ul>
     </section>
     <section class="btn-collage-fixed">
-        <button>立即参团</button>
+        <button id="collageBtn">立即参团</button>
     </section>
 </div>
 
-<!--询问是否兑换-->
-<div class="popup confirm-popup" id="whetherExchange">
-    <div class="pop-body clearfix">
-        <p>确定花费<span>100</span>积分参与拼团？</p>
-        <button class="btn-cancel">取消</button>
-        <button class="btn-sure">确定</button>
-    </div>
-</div>
-<!--手机号未注册-->
-<div class="popup" id="unregistered">
-    <div class="pop-body">
-        <p>请先完成手机号注册</p>
-        <button>知道了</button>
-    </div>
-</div>
-<!--未填收货信息-->
-<div class="popup" id="noReceiveAddress">
-    <div class="pop-body">
-        <p>请先填写配送信息</p>
-        <button>知道了</button>
-    </div>
-</div>
-<!--积分不足弹窗-->
-<div class="popup" id="lackIntegral">
-    <div class="pop-body">
-        <p><img src="../images/mall/error@2x.png" alt="">积分不足</p>
-        <button>知道了</button>
-    </div>
-</div>
-<!--拼团成功-->
-<div class="popup" id="exchangeSuccess">
-    <div class="pop-body">
-        <p><img src="../images/mall/success@2x.png" alt="">恭喜您，拼团成功</p>
-        <button>知道了</button>
-    </div>
-</div>
-<!--拼团失败-->
-<div class="popup popup-error2" id="collageFailure">
-    <div class="pop-body">
-        <p><img src="../images/mall/error@2x.png" alt="">很遗憾</p>
-        <p>拼团人数已满，您未能拼团成功</p>
-        <button>知道了</button>
-    </div>
-</div>
+<!--拼团成员列表模板-->
+<script type="text/html" id="memberListTpl">
+    <li>
+        <div class="collage-members-list-left">
+            <div class="collage-members-head-portrait">
+                <img src="../images/mall/error@2x.png" alt="">
+                <img src="../images/mall/get_award@2x.png" alt="">
+            </div>
+            <div class="collage-members-information">
+                <p><span>恭喜&nbsp;</span>勾心然中得大奖</p>
+                <!--<p>勾心然</p>-->
+                <p>2018-06-24 12:32:23</p>
+            </div>
+        </div>
+        <div class="collage-members-list-right">
+            <span>100</span> 积分
+        </div>
+    </li>
+    <li>
+        <div class="collage-members-list-left">
+            <div class="collage-members-head-portrait">
+                <img src="../images/mall/success@2x.png" alt="">
+            </div>
+            <div class="collage-members-information">
+                <p>大智</p>
+                <p>2018-06-24 12:32:23</p>
+            </div>
+        </div>
+        <div class="collage-members-list-right">
+            <span>100</span> 积分
+        </div>
+    </li>
+</script>
 
 <script src="../lib/jquery/jquery.min.js"></script>
-<script src="../js/index.js"></script>
+<script src="../lib/template.js"></script>
+<script src="../js/popup.js"></script>
+<!--<script src="../js/index.js"></script>-->
+<script>
+    $(function () {
+        var integralNum = $('#integralNum').text();//获取商品积分
+        var data = {};
+        data.phonenumber = '1';
+        data.address = 'aaa';
+        data.integralTotal = 110;//用户剩余积分
+        data.prizeWinner = true;//是否获奖
+        data.downtime = 2 * 24 * 60 * 60;//倒计时：天、时、分、秒
+
+        data.activeStatus = '正在进行';
+//        data.activeStatus = '已结束';
+        data.userStatus = '未参团';
+//        data.userStatus = '已参团';
+//        data.prizeStatus = '未开奖';
+        data.prizeStatus = '已开奖';
+        data.prize = '未中奖';
+//        data.prize = '已中奖';
+//        data.regiment = '未成团';
+        data.regiment = '已成团';
+
+        var html = template('memberListTpl');
+        //此处：遍历成员列表，通过添加类名控制获奖者的状态
+        $('#memberList').html(html);
+
+        if(data.activeStatus == '正在进行') {//正在进行
+            /*定时器*/
+            downTime(data.downtime,'.count-down i');
+            if(data.userStatus == '未参团') {//未参团
+                $('#collageBtn').on('click',function () {
+                    if(data.address == '') {
+                        popup1('','请先填写收货地址','./address.html');
+                    } else {
+                        tip(data,integralNum,'确定花费'+integralNum+'积分拼团？','拼团人数已满，您未能拼团成功','恭喜您，拼团成功','./collage-area.html','./collage-area.html');
+                    }
+                });
+            } else {//已参团
+                if(data.prizeStatus == '未开奖') {//未开奖
+                    $('#collageBtn').text('您已参团，请耐心等待开奖');
+                } else {//已开奖
+                    $('#countDown').html('此次活动已结束')
+                        .css({'color':'#333333','margin-top':function () {
+                            return 30/7.5 + 'vw';
+                        },'font-size':function () {
+                            return 24/7.5 + 'vw';
+                        }});
+                    if(data.prize == '未中奖') {
+                        $('#collageBtn').text('很遗憾您未中奖，再来试试手气吧')
+                            .on('click',function () {
+                                window.location.href = './collage-area.html';
+                            });
+                    } else {
+                        $('#collageBtn').text('您的奖品正在向您飞奔而来，请耐心等待');
+                    }
+                }
+            }
+        } else {//已结束
+            $('#countDown').html('此次活动已结束')
+                .css({'color':'#333333','margin-top':function () {
+                    return 30/7.5 + 'vw';
+                },'font-size':function () {
+                    return 24/7.5 + 'vw';
+                }});
+            if(data.regiment == '未成团') {//未成团
+                $('#collageBtn').text('拼团失败，活动已结束');
+            } else {//已成团
+                if(data.userStatus == '未参团') {//未参团
+                    $('#collageBtn').text('拼团人数已满，请选择其他拼团')
+                        .on('click',function () {
+                            window.location.href = './collage-area.html';
+                        });
+                } else {//已参团
+                    if(data.prizeStatus == '未开奖') {//未开奖
+                        $('#collageBtn').text('您已参团，请耐心等待开奖');
+                    } else {//已开奖
+                        if(data.prize == '未中奖') {
+                            $('#collageBtn').text('很遗憾您未中奖，再来试试手气吧')
+                                .on('click',function () {
+                                    window.location.href = './collage-area.html';
+                                });
+                        } else {
+                            $('#collageBtn').text('您的奖品正在向您飞奔而来，请耐心等待');
+                        }
+                    }
+                }
+            }
+        }
+    })
+</script>
 </body>
 </html>

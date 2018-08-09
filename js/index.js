@@ -2,18 +2,6 @@
  * Created by CRF on 2018/7/19.
  */
 $(function () {
-    /*积分兑换 弹窗*/
-    $('.btn-exchange').on('click',function () {
-        $('#whetherExchange').toggle();
-    });
-    $('.btn-sure').on('click',function () {
-        $('#whetherExchange').toggle();
-        $('#whetherCancelOrder').toggle();
-    });
-    $('.btn-cancel').on('click',function () {
-        $('#whetherExchange').toggle();
-        $('#whetherCancelOrder').toggle();
-    });
     /*编辑收货地址*/
     $('.address').on('click',function () {
         window.location.href = './address.html';
@@ -24,15 +12,6 @@ $(function () {
     $('#save').submit(function () {
         window.history.go(-1);
     });
-    /*拼团进度*/
-    function progressVal(selector,num) {
-        $(selector).text(num);
-        var width = $('.progress-right').width();
-        var proWidth = num/100 * width;
-        $('.progress-value').width(proWidth);
-    }
-    progressVal('.pro-val',20);
-
     /*签到*/
     $('#signIn').on("click",function () {
         $('#signInSuccess').toggle();
@@ -42,35 +21,13 @@ $(function () {
         },2000)
     });
     /*注册手机号*/
-    $('#phone').on('click',function () {
+    /*$('#phone').on('click',function () {
         $('.phone-popup').toggle();
-    });
+    });*/
     $('#close').on('click',function () {
         $('.phone-popup').toggle();
     });
-    /*兑换记录*/
-    $('#record li').on('click', function () {
-        var index = $(this).index();
-        $(this).siblings('li').removeClass('record-active');
-        $(this).addClass('record-active');
-        if(index == 1) {
-            $('.record-list').css('display','none');
-            $('.record-noReceive').css('display','block');
-        } else if(index == 2) {
-            $('.record-list').css('display','none');
-            $('.record-complete').css('display','block');
-        } else if(index == 3) {
-            $('.record-list').css('display','none');
-            $('.record-cancel').css('display','block');
-        } else {
-            $('.record-list').css('display','none');
-            $('.record-all').css('display','block');
-        }
-    });
-    /*取消订单*/
-    $('.btn-cancel-order').on('click',function () {
-        $('.confirm-popup').toggle();
-    });
+
     /*订单详情*/
     $('.btn-order-detail').on('click',function () {
         window.location.href = './order-detail.html';
@@ -79,42 +36,7 @@ $(function () {
     $('.btn-rule').on('click',function () {
         window.location.href = './rule.html';
     });
-    /*我要拼团*/
-    $('.btn-collage').on('click',function () {
-        window.location.href = './collage-members.html';
-    });
-    /*定时器*/
-    // downTime();
 });
-/*定时器*/
-function downTime() {
-    var time = 2 * 60;//天、时、分、秒
-    var i = document.querySelectorAll(".down-time i");
-    var timer = setInterval(function () {
-        time--;
-        if (time < 0) {
-            clearInterval(timer);
-            return;
-        }
-        var d = Math.floor(time / (24 * 3600));
-        var h = Math.floor(time % (24 * 3600) / 3600);
-        var m = Math.floor(time % (24 * 3600) % 3600 / 60);
-        var s = time % 60;
-        //天
-        i[0].innerHTML = Math.floor(d / 10);
-        i[1].innerHTML = d % 10;
-        //时
-        i[2].innerHTML = Math.floor(h / 10);
-        i[3].innerHTML = h % 10;
-        //分
-        i[4].innerHTML = Math.floor(m / 10);
-        i[5].innerHTML = m % 10;
-        //秒
-        i[6].innerHTML = Math.floor(s / 10);
-        i[7].innerHTML = s % 10;
-
-    }, 1000)
-}
 /*获取用户资料*/
 var gather = (function(){
     return {

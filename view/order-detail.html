@@ -30,6 +30,33 @@
             <p>订单号：CRF88888888</p>
         </div>
     </header>
+    <div id="information"></div>
+</div>
+<!--取消订单详情模板-->
+<script type="text/html" id="cancelIformationTpl">
+    <div class="cancel-information">
+        <section class="detail-address">
+            <div class="address-top">
+                <div class="address-top-left"><span>配送至：</span><span>张三</span><span>13552398888</span></div>
+                <div class="address-top-right">
+                    <img src="../images/mall/location02@2x.png" alt="">
+                </div>
+            </div>
+            <div class="address-bottom">
+                <div class="address-bottom-left">
+                    <img src="../images/mall/location@2x.png" alt="">
+                </div>
+                <p class="address-bottom-right">华彬大厦</p>
+            </div>
+        </section>
+        <div class="tip">
+            <p>订单详情：</p>
+            <p>成功取消订单的积分，自取消成功当日起在三个工作日内返回您的账户。</p>
+        </div>
+    </div>
+</script>
+<!--物流详情模板-->
+<script type="text/html" id="logisticsInformationTpl">
     <div class="logistics-information">
         <div class="logistics-title">
             <img src="../images/mine/order_wuliuxiangqing@2x.png" alt="">
@@ -97,8 +124,28 @@
             </ul>
         </div>
     </div>
-</div>
+</script>
+
 <script src="../lib/jquery/jquery.min.js"></script>
-<script src="../js/index.js"></script>
+<script src="../lib/template.js"></script>
+<!--<script src="../js/index.js"></script>-->
+<script>
+    $(function () {
+        var data = {};
+//        data.status = '1';//未取消
+        data.status = '0';//已取消
+        data.back = true;//取消订单，积分已返
+
+        if(data.status == '1') {
+            var html = template('logisticsInformationTpl');
+            $('#information').html(html);
+        } else {
+            //在模板里判断积分是否返还后再渲染模板
+            var html = template('cancelIformationTpl');
+            $('#information').html(html);
+        }
+
+    })
+</script>
 </body>
 </html>

@@ -76,6 +76,7 @@
         var today = 0;
         getTime();
         //获取当前日期
+//      data = {message: null,object: 1533630919555, status: true};
         function getTime(){
             $.ajax({
                 url : "/user/getTime?t=" + new Date().getTime(),

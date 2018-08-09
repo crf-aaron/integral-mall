@@ -22,7 +22,7 @@
             <li><span>已取消</span></li>
         </ul>
     </nav>
-    <div class="record-list record-all">
+    <div class="record-list" style="display: block;">
         <ul>
             <li>
                 <div class="record-list-top">
@@ -68,7 +68,10 @@
             </li>
         </ul>
     </div>
-    <div class="record-list record-noReceive">
+    <div class="record-list" id="recordList">
+
+    </div>
+    <!--<div class="record-list">
         <ul>
             <li>
                 <div class="record-list-top">
@@ -86,8 +89,8 @@
                         <p>共计：<span>1800积分</span></p>
                     </div>
                     <div class="record-list-bottom-right">
-                        <button class="cancel-order">取消订单</button>
-                        <button>订单详情</button>
+                        <button class="btn-cancel-order">取消订单</button>
+                        <button class="btn-order-detail">订单详情</button>
                     </div>
                 </div>
             </li>
@@ -114,7 +117,7 @@
             </li>
         </ul>
     </div>
-    <div class="record-list record-complete">
+    <div class="record-list">
         <ul>
             <li>
                 <div class="record-list-top">
@@ -132,8 +135,8 @@
                         <p>共计：<span>1800积分</span></p>
                     </div>
                     <div class="record-list-bottom-right">
-                        <button class="cancel-order">取消订单</button>
-                        <button>订单详情</button>
+                        <button class="btn-cancel-order">取消订单</button>
+                        <button class="btn-order-detail">订单详情</button>
                     </div>
                 </div>
             </li>
@@ -159,83 +162,117 @@
                 </div>
             </li>
         </ul>
-    </div>
-    <div class="record-list record-cancel">
-        <ul>
-            <li>
-                <div class="record-list-top">
-                    <div class="record-list-top-left">
-                        <img src="../images/mine/1@2x.png" alt="">
-                    </div>
-                    <div class="record-list-top-right">
-                        <p>罐体变形车模</p>
-                        <p><span>2018-07-26</span>&nbsp;兑换</p>
-                        <p>共1件商品</p>
-                    </div>
-                </div>
-                <div class="record-list-bottom">
-                    <div class="record-list-bottom-left">
-                        <p>共计：<span>1800积分</span></p>
-                    </div>
-                    <div class="record-list-bottom-right">
-                        <button class="cancel-order">取消订单</button>
-                        <button>订单详情</button>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="record-list-top">
-                    <div class="record-list-top-left">
-                        <img src="../images/mine/2@2x.png" alt="">
-                    </div>
-                    <div class="record-list-top-right">
-                        <p>罐体变形车模</p>
-                        <p><span>2018-07-26</span>&nbsp;兑换</p>
-                        <p>共1件商品</p>
-                    </div>
-                </div>
-                <div class="record-list-bottom">
-                    <div class="record-list-bottom-left">
-                        <p>共计：<span>1800积分</span></p>
-                    </div>
-                    <div class="record-list-bottom-right">
-                        <button class="cancel-order">取消订单</button>
-                        <button>订单详情</button>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+    </div>-->
     <div class="nothing">
         <img src="../images/mine/wuduihuanjilu@2x.png" alt="">
         <p>您还未兑换过任何商品哦~</p>
     </div>
 </div>
-<!--询问是否取消订单弹窗-->
-<div class="popup confirm-popup" id="whetherCancelOrder">
-    <div class="pop-body clearfix">
-        <p>确定取消此次订单吗？</p>
-        <button class="btn-cancel">取消</button>
-        <button class="btn-sure">确定</button>
-    </div>
-</div>
-<!--取消订单失败-->
-<div class="popup popup-error2" id="cancelError">
-    <div class="pop-body">
-        <p><img src="../images/mall/error@2x.png" alt="">很遗憾</p>
-        <p>订单已发货，不可以取消该订单</p>
-        <button>知道了</button>
-    </div>
-</div>
-<!--取消订单成功-->
-<div class="popup popup-error2" id="cancelSuccess">
-    <div class="pop-body">
-        <p><img src="../images/mall/success@2x.png" alt="">此次订单取消成功</p>
-        <p>积分将在3个工作日内返回</p>
-        <button>知道了</button>
-    </div>
-</div>
+<!--兑换记录列表模板-->
+<script type="text/html" id="recordListTpl">
+    <ul>
+        <li>
+            <div class="record-list-top">
+                <div class="record-list-top-left">
+                    <img src="../images/mine/1@2x.png" alt="">
+                </div>
+                <div class="record-list-top-right">
+                    <p>罐体变形车模</p>
+                    <p><span>2018-07-26</span>&nbsp;兑换</p>
+                    <p>共1件商品</p>
+                </div>
+            </div>
+            <div class="record-list-bottom">
+                <div class="record-list-bottom-left">
+                    <p>共计：<span>1800积分</span></p>
+                </div>
+                <div class="record-list-bottom-right">
+                    <button class="btn-cancel-order">取消订单</button>
+                    <button class="btn-order-detail">订单详情</button>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="record-list-top">
+                <div class="record-list-top-left">
+                    <img src="../images/mine/2@2x.png" alt="">
+                </div>
+                <div class="record-list-top-right">
+                    <p>罐体变形车模</p>
+                    <p><span>2018-07-26</span>&nbsp;兑换</p>
+                    <p>共1件商品</p>
+                </div>
+            </div>
+            <div class="record-list-bottom">
+                <div class="record-list-bottom-left">
+                    <p>共计：<span>1800积分</span></p>
+                </div>
+                <div class="record-list-bottom-right">
+                    <button class="cancel-order">取消订单</button>
+                    <button>订单详情</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</script>
 <script src="../lib/jquery/jquery.min.js"></script>
-<script src="../js/index.js"></script>
+<script src="../lib/template.js"></script>
+<script src="../js/popup.js"></script>
+<!--<script src="../js/index.js"></script>-->
+<script>
+    $(function () {
+        record();
+        /*兑换记录*/
+        $('#record li').on('click', function () {
+            var index = $(this).index();
+            $(this).siblings('li').removeClass('record-active');
+            $(this).addClass('record-active');
+            /*if(index == 0) {//全部
+             //获取数据，渲染模板
+             record(index)；
+             } else if(index == 1) {
+
+             } else if(index == 2) {
+
+             } else {
+
+             }*/
+            $('.record-list').eq(index).siblings('.record-list').css('display','none');
+            $('.record-list').eq(index).css('display','block');
+        });
+        /*取消订单*/
+        $('.btn-cancel-order').on('click',function () {
+            popup('确定取消此次订单吗？');
+            $('.btn-cancel').on('click',function () {
+                $('.popup').remove();
+            });
+            $('.btn-sure').on('click',function () {
+                //发送ajax
+                var data = {};
+                data.cancel = 'success';//状态：取消成功
+                // data.miaosha = 'error';//状态：取消失败（订单已发货）
+
+                $('.popup').remove();
+                if(data.cancel == 'success') {//取消成功
+                    popup2('../images/mall/success@2x.png','此次订单取消成功','积分将在3个工作日内返回','./order-detail.html');
+                } else {//取消失败
+                    popup2('../images/mall/error@2x.png','很遗憾','订单已发货，不可以取消该订单','./order-detail.html');
+                }
+            });
+        });
+    });
+    //获取兑换记录
+    function record(index) {
+//        $.ajax
+        var data = {};
+        data.status = '已取消';
+
+        var html = template('recordListTpl');
+        $('#recordList').html(html);
+        if(data.status == '已取消') {//去判断放在渲染模板里，不然会同时处理所有数据为“已取消”
+            $('.record-list-bottom-right').html('<button>已取消</button>');
+        }
+    }
+</script>
 </body>
 </html>

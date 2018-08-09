@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"><!--可隐藏地址栏，仅针对IOS的Safari（注：IOS7.0版本以后，safari上已看不到效果）-->
+    <meta content="yes" name="apple-touch-fullscreen"><!--添加到主屏幕后，全屏显示-->
+    <meta content="telephone=no,email=no" name="format-detection"><!--IOS中禁用将数字识别为电话号码/忽略Android平台中对邮箱地址的识别-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" /><!--避免IE使用兼容模式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"><!--仅针对IOS的Safari顶端状态条的样式（可选default/black/black-translucent ）-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+</head>
+<body>
+<div class="detail">
+    <header class="detail-header">
+        <img src="../images/mall/product-big/product-big01.png" alt="">
+    </header>
+    <section class="detail-title">
+        <p><span id="integralNum">100</span>&nbsp;积分</p>
+        <p>去哪儿网火车票立减券</p>
+        <div class="count-down" id="countDown">
+            <p id="countDownTxt">下次抢购时间</p>
+            <p id="countDownTime"><span>7&nbsp;月&nbsp;4&nbsp;日&nbsp;</span><span><i>0</i><i>0</i></span>&nbsp;:&nbsp;<span><i>0</i><i>0</i></span>&nbsp;:&nbsp;<span><i>0</i><i>0</i></span></p>
+        </div>
+    </section>
+    <section id="collageNum"></section>
+    <section id="detailAddress"></section>
+    <section id="detailTxt"></section>
+    <button class="btn-exchange" id="detailBtn">立即兑换</button>
+</div>
+
+<!--拼团积分模板-->
+<script type="text/html" id="collageNumTpl">
+    <section class="collage-num">
+        <div class="collage-num-txt">
+            <p>拼团积分</p>
+            <p>机会多多，快来参与哦！</p>
+        </div>
+        <div class="num">100</div>
+    </section>
+</script>
+<!--收货地址模板-->
+<script type="text/html" id="detailAddressTpl">
+    <section class="detail-address">
+        <a href="./address.html">
+            <div class="address-top">
+                <div class="address-top-left"><span>配送至：</span><span>张三</span><span>13552398888</span></div>
+                <div class="address-top-right">
+                    <img src="../images/mall/location02@2x.png" alt="">
+                </div>
+            </div>
+            <div class="address-bottom">
+                <div class="address-bottom-left">
+                    <img src="../images/mall/location@2x.png" alt="">
+                </div>
+                <p class="address-bottom-right">华彬大厦</p>
+            </div>
+        </a>
+    </section>
+</script>
+<!--详情模板-->
+<script type="text/html" id="detailTxtTpl">
+    <section class="detail-txt1" id="detailTxt1">
+        <p>详细说明</p>
+        <p>1.累计积分达到100并且完成手机号码注册时可免费兑换；</p>
+        <p>2.先关注公众号，成功后点击兑换成功后跳转至第三方网页领取奖励。</p>
+    </section>
+    <section class="detail-txt2" id="detailTxt2">
+        <p>详情：</p>
+        <p>商品详情商品详情商品详情商品详情商品详情详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情</p>
+    </section>
+</script>
+
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../lib/template.js"></script>
+<script src="../js/popup.js"></script>
+<!--<script src="../js/index.js"></script>-->
+<script>
+    $(function () {
+        var data = {};//模拟数据
+        data.detailCategory = 'lottery';//奖券区
+//      data.detailCategory2 = '';//奖券区-->电子奖券||实物
+        data.detailCategory2 = 'electronics';//奖券区-->电子奖券
+//        data.detailCategory = 'seckill';//秒杀区
+//        data.detailCategory = 'collage';//拼团区
+//        data.detailCategory = 'huabin';//华彬区
+
+        data.downtime = 2 * 24 * 60 * 60;//倒计时：天、时、分、秒
+
+        /*秒杀*/
+        data.timeTip = 0;//未到抢购时间
+//        data.timeTip = 1;//正在抢购中
+        /*拼团*/
+//        data.timeTip = -1;//活动已结束
+        data.integralTotal = 110;//用户剩余积分
+        data.phonenumber = '1';
+        data.address = 'aaa';
+        data.href = 'http://www.baidu.com';//奖券外链
+
+        var integralNum = $('#integralNum').text();//获取商品积分
+
+        /*模板函数*/
+        var detailHtml = template('detailTxtTpl');
+        var addressHtml = template('detailAddressTpl');
+        /*显示对应区域*/
+        if(data.detailCategory == 'lottery') {//奖券区
+            $('title').text('积分兑换');
+            $('#countDown').hide();
+            $('#detailTxt').html(detailHtml);
+            if(data.detailCategory2 == 'electronics') {//电子奖券
+                $('#detailTxt2').hide();
+                $('#detailBtn').on('click',function () {
+                    exchangeTip(data,integralNum);
+                });
+            } else {//实物
+                $('#detailAddress').html(addressHtml);
+                $('#detailTxt1').hide();
+                $('#detailBtn').on('click',function () {
+                    if(data.address == '') {
+                        popup1('','请先填写收货地址','./address.html');
+                    } else {
+                        exchangeTip(data,integralNum);
+                    }
+                });
+            }
+        } else if(data.detailCategory == 'seckill') {//秒杀区
+            $('title').text('积分秒杀');
+            $('#detailAddress').html(addressHtml);
+            $('#detailTxt').html(detailHtml);
+            $('#detailTxt1').hide();
+            $('#detailBtn').text('未到抢购时间');
+            if(data.timeTip == 1) {//正在抢购中
+                $('#countDown').html('正在抢购中...')
+                    .css({'color':'#333333','margin-top':function () {
+                        return 30/7.5 + 'vw';
+                    },'font-size':function () {
+                        return 24/7.5 + 'vw';
+                    }});
+                $('#detailBtn').text('立即抢购')
+                    .on('click',function () {
+                        if(data.address == '') {
+                            popup1('','请先填写收货地址','./address.html');
+                        } else {
+                            tip(data,integralNum,'确定花费'+integralNum+'积分秒杀？','秒杀失败，下次再来吧~','恭喜您，秒杀成功','./seckill-area.html','./record.html');
+                        }
+                    });
+            } else {//未到抢购时间
+                //此处：渲染下次抢购时间
+                $('#detailBtn').css({'background-color':'#999999','color':'#ffffff','font-weight':'normal'});
+            }
+        } else if(data.detailCategory == 'collage') {//拼团区
+            $('title').text('积分拼团');
+            $('#countDownTxt').text('距开奖仅剩');
+            $('#countDownTime').html('<span><i>0</i><i>0</i></span>&nbsp;天&nbsp;<span><i>0</i><i>0</i></span>&nbsp;:&nbsp;<span><i>0</i><i>0</i></span>&nbsp;:&nbsp;<span><i>0</i><i>0</i></span>');
+            /*定时器*/
+            downTime(data.downtime,'.count-down i');
+            var collageNum = template('collageNumTpl');
+            $('#collageNum').html(collageNum);
+            $('#detailAddress').html(addressHtml);
+            $('#detailTxt').html(detailHtml);
+            $('#detailTxt1').hide();
+            $('#detailBtn').text('我要拼团')
+                .on('click',function () {
+                    window.location.href = './collage-members.html';
+                });
+            if(data.timeTip == -1) {//此次活动已结束
+                $('#countDown').html('此次活动已结束')
+                    .css({'color':'#333333','margin-top':function () {
+                        return 30/7.5 + 'vw';
+                    },'font-size':function () {
+                        return 24/7.5 + 'vw';
+                    }});
+            }
+        } else {//华彬区
+            $('title').text('优惠券详情');
+            $('#countDown').hide();
+            $('#detailTxt').html(detailHtml);
+            $('#detailTxt2').hide();
+            $('#detailBtn').text('立即领券')
+                .on('click',function () {
+                    window.location.href = '';//华彬天猫券链接
+                });
+        }
+    });
+
+    /*//积分兑换弹框提示
+    function exchangeTip(data,integralNum) {
+        popup(integralNum,'积分兑换？');
+        $('.btn-cancel').on('click',function () {
+            $('.popup').remove();
+        });
+        $('.btn-sure').on('click',function () {
+            $('.popup').remove();
+            if(data.phonenumber == '') {//未注册手机号
+                popup1('','请先完成手机号注册','./personal-data.html');
+            } else if(integralNum < data.integralTotal) {//兑换成功
+                popup1('../images/mall/success@2x.png','恭喜您，兑换成功',data.href);
+            } else {//积分不足
+                popup1('../images/mall/error@2x.png','积分不足','./rule.html');
+            }
+        });
+    }
+    //积分秒杀、积分拼团弹框提示
+    function tip(data,integralNum,txt1,txt2,txt3,href1,href2) {
+        popup(integralNum,txt1);
+        $('.btn-cancel').on('click',function () {
+            $('.popup').remove();
+        });
+        $('.btn-sure').on('click',function () {
+            //发送ajax
+            data.miaosha = 'success';//状态：秒杀成功
+            // data.miaosha = 'error';//状态：秒杀失败
+
+            $('.popup').remove();
+            if(data.phonenumber == '') {//未注册手机号
+                popup1('','请先完成手机号注册','./personal-data.html');
+            } else if(integralNum < data.integralTotal) {//积分足够
+                if(data.miaosha == 'error') {//秒杀失败
+                    popup2('../images/mall/error@2x.png',txt2,href1);
+                } else {//秒杀成功
+                    popup1('../images/mall/success@2x.png',txt3,href2);
+                }
+            } else {//积分不足
+                popup1('../images/mall/error@2x.png','积分不足','./rule.html');
+            }
+        });
+    }
+    //确认提示
+    function popup(integralNum,txt) {
+        var html = '<div class="popup confirm-popup"> ' +
+            '<div class="pop-body clearfix"> ' +
+            '<p>确定花费<span>'+ integralNum +'</span>'+txt+'</p> ' +
+            '<button class="btn-cancel">取消</button> ' +
+            '<button class="btn-sure">确定</button> ' +
+            '</div> ' +
+            '</div>';
+        $('body').append(html);
+    }
+    //单行提示
+    function popup1(src,txt,href) {
+        var html = '';
+        if(src == '') {
+            html = '<div class="popup"> ' +
+                '<div class="pop-body"> ' +
+                '<p>'+txt+'</p> ' +
+                '<button id="know">知道了</button> ' +
+                '</div> ' +
+                '</div>';
+        } else {
+            html = '<div class="popup"> ' +
+                '<div class="pop-body"> ' +
+                '<p><img src='+src+' alt="">'+txt+'</p> ' +
+                '<button id="know">知道了</button> ' +
+                '</div> ' +
+                '</div>';
+        }
+        $('body').append(html);
+        $('#know').on('click',function () {
+            window.location.href = href;
+        });
+    }
+    //双行提示
+    function popup2(src,txt,href) {
+        var html = '<div class="popup popup-error2" id="collageFailure"> ' +
+            '<div class="pop-body"> ' +
+            '<p><img src='+src+' alt="">很遗憾</p> ' +
+            '<p>'+txt+'</p> ' +
+            '<button id="know">知道了</button> ' +
+            '</div> ' +
+            '</div>';
+        $('body').append(html);
+        $('#know').on('click',function () {
+            window.location.href = href;
+        });
+    }*/
+</script>
+</body>
+</html>
