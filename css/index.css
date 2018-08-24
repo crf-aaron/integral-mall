@@ -1690,12 +1690,16 @@ img {
   position: absolute;
   left: 0;
   bottom: 2.13333333vw;
+  z-index: 2;
 }
 .rigister .phone ul li input {
   width: 100%;
-  font-size: 4vw;
+  font-size: 4.26666667vw;
   padding-left: 16vw;
-  margin-top: 8vw;
+  position: absolute;
+  left: 0;
+  bottom: 2.13333333vw;
+  z-index: 1;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
@@ -1712,6 +1716,7 @@ img {
   position: absolute;
   right: 0;
   bottom: 2.66666667vw;
+  z-index: 2;
 }
 .rigister .label {
   width: 100%;
@@ -2249,71 +2254,32 @@ img {
     -webkit-transform: rotate(360deg);
   }
 }
-/*注册手机号弹窗*/
-/*.phone-popup {
-  .popup;
-  .popup-body {
-    .vw-w-h(670,500);
-    background-color: #ffffff;
-    border-radius: 24/@vw;
-    padding: 100/@vw 60/@vw 0;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    .box-sizing();
-    .close {
-      .vw-w-h(56,56);
-      position: absolute;
-      right: 0;
-      top: -96/@vw;
-    }
-    ul {
-      li {
-        border-bottom: 1/@vw solid #e5e5e5;
-        font-size: 32/@vw;
-        color: #333333;
-        padding-bottom: 20/@vw;
-        .flex-y();
-        position: relative;
-        span {
-          position: absolute;
-        }
-        input {
-          width: 100%;
-          font-size: 36/@vw;
-          padding-left: 120/@vw;
-          .box-sizing();
-          .flex-y();
-        }
-        &:nth-of-type(2) {
-          margin-top: 70/@vw;
-          input {
-            padding-right: 168/@vw;
-          }
-          button {
-            .vw-w-h(168,60);
-            font-size: 24/@vw;
-            color: #77481C;
-            background-color: #DEBC57;
-            border-radius: 8/@vw;
-            position: absolute;
-            right: 0;
-            bottom: 20/@vw;
-          }
-        }
-      }
-    }
-    >button {
-      width: 100%;
-      height: 98/@vw;
-      font-size: 36/@vw;
-      color: #77481C;
-      background-color: #DEBC57;
-      border-radius: 8/@vw;
-      letter-spacing: 10/@vw;
-      margin-top: 60/@vw;
-    }
-  }
-}*/
+/*loading*/
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.loading .loading-body {
+  width: 26.66666667vw;
+  height: 26.66666667vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1.33333333vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.loading .loading-body img {
+  width: 10.66666667vw;
+  height: 10.66666667vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

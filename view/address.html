@@ -11,9 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="../css/base.css"/>
     <link rel="stylesheet" href="../css/index.css"/>
-    <!--<link rel="stylesheet" type="text/css" href="../lib/LArea_citySelect/css/LArea.css" >
-    <link rel="stylesheet" type="text/css" href="../lib/LArea_citySelect/css/style.css" />-->
-    <!--收货地址css-->
     <link href="../lib/addressSelecter/css/common.css" rel="stylesheet" type="text/css">
     <link href="../lib/addressSelecter/css/cityPicker.css" rel="stylesheet" type="text/css">
 </head>
@@ -30,10 +27,6 @@
             <li>
                 <label for="address">地址</label>
                 <input type="text" id="address" name="address" readonly placeholder="请选择收货地址" value="">
-                <!--<div class="content-block">
-                    <input type="text" id="address" name="address" readonly placeholder="请选择收货地址" value="">
-                    <input id="addressValue" type="hidden" value=""/>
-                </div>-->
             </li>
             <li>
                 <label for="detailAddress">详细地址</label><textarea type="text" id="detailAddress" name="detailAddress" placeholder="请输入详细地址"></textarea>
@@ -57,27 +50,7 @@
             $('#address').val(data.prov+data.city+data.dist);
         }
     });
-
 </script>
 <script src="../js/index.js"></script>
-<!--<script type="text/javascript" src="../lib/LArea_citySelect/js/common.js"></script>
-<script src="../lib/LArea_citySelect/js/city.data.min.js"></script>
-<script type="text/javascript" src="../lib/LArea_citySelect/js/LArea.js"></script>
-<script>
-    /*选择收货地址*/
-    var area = new LArea();
-    area.init({
-        'trigger': '#address', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
-        'valueTo': '#addressValue', //选择完毕后id属性输出到该位置
-        'keys': {
-            id: 'addressValue',
-            name: 'text'
-        }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
-        'type': 1, //数据源类型
-        'data': LAreaData //数据源
-    });
-    area.value = [1, 13, 3];//控制初始位置，注意：该方法并不会影响到input的value
-</script>-->
-
 </body>
 </html>

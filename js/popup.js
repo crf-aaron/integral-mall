@@ -130,3 +130,16 @@ function progressVal(selectorVal,num) {
     var proWidth = num/100 * width;
     selector.parent().siblings().width(proWidth);
 }
+
+/*loading*/
+function loadingShow() {
+    var html = '<div class="loading" id="loading"> ' +
+        '<div class="loading-body"> ' +
+        '<img src="images/loading.gif" alt=""/> ' +
+        '</div> ' +
+        '</div>';
+    $('body').append(html);
+}
+function loadingHide() {
+    $('#loading').remove();
+}

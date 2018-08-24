@@ -40,26 +40,48 @@
         <section class="swiper-container">
             <div class="swiper-wrapper">
                 <ul class="swiper-slide">
-                    <li><span class="active">科技</span></li>
-                    <li><span>读书</span></li>
-                    <li><span>旅行</span></li>
-                    <li><span>科技</span></li>
-                    <li><span>读书</span></li>
-                    <li><span>旅行</span></li>
-                    <li><span>科技</span></li>
-                    <li><span>读书</span></li>
-                    <li><span>旅行</span></li>
+                    <li data-id="0"><span>新闻</span></li>
+                    <li data-id="1"><span>汽车</span></li>
+                    <li data-id="2"><span>学习</span></li>
+                    <li data-id="3"><span>游戏</span></li>
+                    <li data-id="4"><span>电商</span></li>
+                    <li data-id="5"><span>科技数码</span></li>
+                    <li data-id="6"><span>时尚穿搭</span></li>
+                    <li data-id="7"><span>护肤</span></li>
+                    <li data-id="8"><span>阅读</span></li>
                 </ul>
                 <ul class="swiper-slide">
-                    <li><span class="active">科技</span></li>
-                    <li><span>读书</span></li>
-                    <li><span>旅行</span></li>
-                    <li><span>科技</span></li>
-                    <li><span>读书</span></li>
-                    <li><span>旅行</span></li>
-                    <li><span>科技</span></li>
-                    <li><span>读书</span></li>
-                    <li><span>旅行</span></li>
+                    <li data-id="9"><span>美食</span></li>
+                    <li data-id="10"><span>美妆</span></li>
+                    <li data-id="11"><span>旅行</span></li>
+                    <li data-id="12"><span>运动健身</span></li>
+                    <li data-id="13"><span>体育</span></li>
+                    <li data-id="14"><span>娱乐</span></li>
+                    <li data-id="15"><span>婚姻</span></li>
+                    <li data-id="16"><span>单身</span></li>
+                    <li data-id="17"><span>小说</span></li>
+                </ul>
+                <ul class="swiper-slide">
+                    <li data-id="9"><span>健康</span></li>
+                    <li data-id="10"><span>购物</span></li>
+                    <li data-id="11"><span>美食</span></li>
+                    <li data-id="12"><span>股票</span></li>
+                    <li data-id="13"><span>房产</span></li>
+                    <li data-id="14"><span>明星</span></li>
+                    <li data-id="15"><span>军事</span></li>
+                    <li data-id="16"><span>历史</span></li>
+                    <li data-id="17"><span>住宿</span></li>
+                </ul>
+                <ul class="swiper-slide">
+                    <li data-id="9"><span>外卖</span></li>
+                    <li data-id="10"><span>电影</span></li>
+                    <li data-id="11"><span>医疗</span></li>
+                    <li data-id="12"><span>彩票</span></li>
+                    <li data-id="13"><span>花呗</span></li>
+                    <li data-id="14"><span>金融</span></li>
+                    <li data-id="15"><span>信用卡</span></li>
+                    <li data-id="16"><span>理财</span></li>
+                    <li data-id="17"><span>视频</span></li>
                 </ul>
             </div>
         </section>
@@ -74,16 +96,52 @@
     $(function () {
         var swiper = new Swiper('.swiper-container', {
             autoplay: false,//可选选项，自动滑动
-            loop: true,
+            loop: false,
             autoplayDisableOnInteraction: true,//滑动以后是否禁止autoplay
         });
         $('#change').on('click',function () {
             swiper.slideNext();
         });
+        $('#phonenumber').blur(function () {
+            var phoneInput = $(this).val();
+            isPhoneNumber(phoneInput);
+        });
+        //模拟数据
+        var data = [false,false,false,false,false,false,false,false,false,false,false,false];
         $('.swiper-slide li').on('click',function () {
-            var index = $(this).index();
-        })
-    })
+            var id = $(this).attr('data-id');
+            data[id] = !data[id];
+            if(data[id] == true) {
+                $(this).children('span').addClass('active');
+            } else {
+                $(this).children('span').removeClass('active');
+            }
+        });
+        var phoneInput = $('#phonenumber').val();
+        $('#submit').on('click',function () {
+            $.ajax({
+                url: '',
+                type: '',
+                data: {phoneInput: phoneInput,data: data},
+                dataType: 'json',
+                beforeSend: function () {
+                    isPhoneNumber(phoneInput);
+                },
+                success: function () {
+
+                }
+            });
+        });
+    });
+    function isPhoneNumber(phoneInput) {
+        var mobile = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+        if(phoneInput == '' || !mobile.test(phoneInput)) {
+            alert('请输入正确的手机号！');
+            return false;
+        } else {
+            return true;
+        }
+    }
 </script>
 </body>
 </html>
