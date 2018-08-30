@@ -146,9 +146,6 @@ img {
   color: #bf9345;
 }
 /*奖券区、华彬区*/
-.exchange {
-  padding-top: 3.73333333vw;
-}
 .exchange ul {
   width: 100%;
   padding: 0 2vw;
@@ -166,6 +163,10 @@ img {
 }
 .exchange ul li a {
   display: block;
+}
+.exchange ul li a img {
+  width: 44vw;
+  height: 24.8vw;
 }
 .exchange ul li a p {
   font-size: 3.73333333vw;
@@ -221,6 +222,10 @@ img {
 }
 .secondKill .secondKill-list ul li a {
   display: block;
+}
+.secondKill .secondKill-list ul li a img {
+  width: 44vw;
+  height: 24.8vw;
 }
 .secondKill .secondKill-list ul li a > p {
   font-size: 3.73333333vw;
@@ -324,6 +329,10 @@ img {
 .collage .collage-list ul li a {
   display: block;
 }
+.collage .collage-list ul li a img {
+  width: 44vw;
+  height: 24.8vw;
+}
 .collage .collage-list ul li a > p {
   font-size: 3.73333333vw;
   margin-bottom: 1.6vw;
@@ -374,6 +383,10 @@ img {
 }
 .collage .collage-list ul li:nth-of-type(odd) {
   border-right: 0.13333333vw solid #e5e5e5;
+}
+.collage .collage-list ul li a img {
+  width: 44vw;
+  height: 24.8vw;
 }
 .collage .collage-list ul li a > p {
   margin-top: 2.66666667vw;
@@ -1869,6 +1882,11 @@ img {
   font-size: 4vw;
   color: #333333;
 }
+.record .record-list ul li .record-list-bottom .record-list-bottom-right {
+  display: flex;
+  align-items: center;
+  -webkit-align-items: center;
+}
 .record .record-list ul li .record-list-bottom .record-list-bottom-right button {
   width: 20.8vw;
   height: 6.66666667vw;
@@ -1878,10 +1896,19 @@ img {
   border-radius: 1.06666667vw;
   border: 0.13333333vw solid #333333;
 }
-.record .record-list ul li .record-list-bottom .record-list-bottom-right button:nth-of-type(2) {
-  border: none;
+.record .record-list ul li .record-list-bottom .record-list-bottom-right a {
+  width: 20.8vw;
+  height: 6.66666667vw;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  font-size: 3.2vw;
+  border-radius: 1.06666667vw;
   color: #77481C;
   background-color: #DEBC57;
+  margin-left: 1.33333333vw;
 }
 .record .nothing {
   display: none;

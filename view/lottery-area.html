@@ -10,54 +10,183 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style"><!--仅针对IOS的Safari顶端状态条的样式（可选default/black/black-translucent ）-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/index.css"/>
 </head>
 <body>
 <!--奖券区（积分兑换）-->
-<section class="exchange">
-    <ul class="clearfix">
-        <li>
-            <a href="./detail.html">
-                <p>去哪儿网火车票立减券</p>
-                <p>
-                    <span>0</span>
-                    <span>积分</span>
-                </p>
-                <img src="../images/mall/product/product01.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="./detail.html">
-                <p>去哪儿网火车票立减券</p>
-                <p>
-                    <span>0</span>
-                    <span>积分</span>
-                </p>
-                <img src="../images/mall/product/product01.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="./detail.html">
-                <p>去哪儿网火车票立减券</p>
-                <p>
-                    <span>0</span>
-                    <span>积分</span>
-                </p>
-                <img src="../images/mall/product/product01.png" alt="">
-            </a>
-        </li>
-        <li>
-            <a href="./detail.html">
-                <p>去哪儿网火车票立减券</p>
-                <p>
-                    <span>0</span>
-                    <span>积分</span>
-                </p>
-                <img src="../images/mall/product/product01.png" alt="">
-            </a>
-        </li>
-    </ul>
-</section>
+<div class="exchange" id="wrapper">
+    <div class="scroller">
+        <ul class="clearfix" id="list">
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="./detail.html">
+                    <p>去哪儿网火车票立减券</p>
+                    <p>
+                        <span>0</span>
+                        <span>积分</span>
+                    </p>
+                    <img src="../images/mall/product/product01.png" alt="">
+                </a>
+            </li>
+        </ul>
+        <div class="more"><i class="pull_icon"></i><span>上拉加载...</span></div>
+    </div>
+</div>
+<script type="text/html" id="listTpl">
+    <li>
+        <a href="./detail.html">
+            <p>去哪儿网火车票立减券</p>
+            <p>
+                <span>0</span>
+                <span>积分</span>
+            </p>
+            <img src="../images/mall/product/product01.png" alt="">
+        </a>
+    </li>
+</script>
+<script src="../lib/jquery/jquery.min.js"></script>
+<script src="../lib/iscroll.js"></script>
+<script src="../lib/template.js"></script>
+<script>
+    $(function () {
+        var pageIndex = 1;//页数
+        var myscroll = new iScroll("wrapper",{
+            onScrollMove: function(){
+                if (this.y<(this.maxScrollY)) {
+                    $('.pull_icon').addClass('flip');
+                    $('.pull_icon').removeClass('loading2');
+                    $('.more span').text('释放加载...');
+                }else{
+                    $('.pull_icon').removeClass('flip loading2');
+                    $('.more span').text('上拉加载...')
+                }
+            },
+            onScrollEnd: function(){
+                if ($('.pull_icon').hasClass('flip')) {
+                    $('.pull_icon').addClass('loading2');
+                    $('.more span').text('加载中...');
+                    $.ajax({
+                        url:'',
+                        type:'get',
+                        data: {pageIndex: pageIndex},
+                        dataType:'json',
+                        success:function(data){
+                            var html = template('listTpl',data)
+                            $('#list').append(html);
+                            myscroll.refresh(data);
+                        },
+                        error:function(){
+                            console.log('error');
+                        },
+                    })
+                }
+            },
+            onRefresh: function(data){
+                if(data) {
+                    pageIndex++;
+                    $('.more').removeClass('flip');
+                    $('.more span').text('上拉加载...');
+                } else {
+                    $('.more').html('没有更多数据了~');
+                }
+            }
+        });
 
+        if ($('.scroller').height() < $('#wrapper').height()) {
+            $('.more').hide();
+            myscroll.destroy();
+        }
+    })
+</script>
 </body>
 </html>

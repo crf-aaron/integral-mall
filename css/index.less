@@ -189,7 +189,7 @@ img {
 }
 /*奖券区、华彬区*/
 .exchange {
-  padding-top: 28/@vw;
+  //padding-top: 28/@vw;
   ul {
     width: 100%;
     padding: 0 15/@vw;
@@ -203,6 +203,9 @@ img {
       .box-sizing();
       a {
         display: block;
+        img {
+          .vw-w-h(330,186);
+        }
         p {
           font-size: 28/@vw;
           margin-bottom: 12/@vw;
@@ -257,6 +260,9 @@ img {
         .box-sizing();
         a {
           display: block;
+          img {
+            .vw-w-h(330,186);
+          }
           >p {
             font-size: 28/@vw;
             margin-bottom: 12/@vw;
@@ -334,6 +340,9 @@ img {
   .collage-list {
     .secondKill .secondKill-list;
     ul li a {
+      img {
+        .vw-w-h(330,186);
+      }
       >p {
         margin-top: 20/@vw;
         margin-bottom: 0;
@@ -1635,6 +1644,7 @@ img {
             }
           }
           .record-list-bottom-right {
+            .flex-y();
             button {
               .vw-w-h(156,50);
               font-size: 24/@vw;
@@ -1642,11 +1652,15 @@ img {
               background-color: #ffffff;
               border-radius: 8/@vw;
               border: 1/@vw solid #333333;
-              &:nth-of-type(2) {
-                border: none;
-                color: #77481C;
-                background-color: #DEBC57;
-              }
+            }
+            a {
+              .vw-w-h(156,50);
+              .flex();
+              font-size: 24/@vw;
+              border-radius: 8/@vw;
+              color: #77481C;
+              background-color: #DEBC57;
+              margin-left: 10/@vw;
             }
           }
         }

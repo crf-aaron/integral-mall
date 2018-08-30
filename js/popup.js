@@ -135,7 +135,7 @@ function progressVal(selectorVal,num) {
 function loadingShow() {
     var html = '<div class="loading" id="loading"> ' +
         '<div class="loading-body"> ' +
-        '<img src="images/loading.gif" alt=""/> ' +
+        '<img src="../images/loading.gif" alt=""/> ' +
         '</div> ' +
         '</div>';
     $('body').append(html);

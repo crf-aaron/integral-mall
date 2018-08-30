@@ -41,7 +41,7 @@
                     </div>
                     <div class="record-list-bottom-right">
                         <button class="btn-cancel-order">取消订单</button>
-                        <button class="btn-order-detail">订单详情</button>
+                        <a class="btn-order-detail">订单详情</a>
                     </div>
                 </div>
             </li>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="record-list-bottom-right">
                         <button class="cancel-order">取消订单</button>
-                        <button>订单详情</button>
+                        <a>订单详情</a>
                     </div>
                 </div>
             </li>
@@ -265,7 +265,7 @@
     function record(index) {
 //        $.ajax
         var data = {};
-        data.status = '已取消';
+//        data.status = '已取消';
 
         var html = template('recordListTpl');
         $('#recordList').html(html);
