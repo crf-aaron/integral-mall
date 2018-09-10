@@ -959,7 +959,7 @@ img {
             .vw-w-h(80,80);
             border-radius: 50%;
             overflow: hidden;
-            background-color: #cccccc;
+            background-color: #ffffff;
             position: relative;
             img {
               &:nth-of-type(2) {
@@ -1036,7 +1036,7 @@ img {
           .vw-w-h(124,124);
           border-radius: 50%;
           overflow: hidden;
-          background-color: #cccccc;
+          background-color: #ffffff;
         }
         .cont-left-txt {
           margin-left: 20/@vw;
@@ -1072,9 +1072,20 @@ img {
       margin: 0 auto;
       text-align: center;
       .translateX();
-      >img {
-        .vw-w-h(590,98);
+      >ul {
+        width: 670/@vw;
+        height: 98/@vw;
         margin: 20/@vw auto 0;
+        >li {
+          float: left;
+          width: 25%;
+          height: 98/@vw;
+          line-height: 98/@vw;
+          text-align: center;
+          >img {
+            .vw-w-h(86,98);
+          }
+        }
       }
       .progress {
         margin-top: 10/@vw;
@@ -1098,6 +1109,12 @@ img {
             width: 20%;
             display: inline-block;
             text-align: left;
+            &:nth-of-type(3) {
+              text-align: center;
+            }
+            &:nth-of-type(4) {
+              text-align: right;
+            }
             &:last-child {
               text-align: right;
             }
@@ -1374,6 +1391,9 @@ img {
     }
   }
 }
+.wraper-integral {
+  top: 324/@vw;
+}
 /*个人资料*/
 .personal-data {
   .header {
@@ -1388,7 +1408,7 @@ img {
       border-radius: 50%;
       overflow: hidden;
       margin: 0 auto;
-      background-color: #cccccc;
+      background-color: #ffffff;
     }
     p {
       text-align: center;
@@ -1596,7 +1616,6 @@ img {
     }
   }
   .record-list {
-    display: none;
     ul {
       li {
         width: 100%;
@@ -1611,6 +1630,7 @@ img {
             overflow: hidden;
           }
           .record-list-top-right {
+            width: 332/@vw;
             margin-left: 30/@vw;
             p {
               font-size: 24/@vw;
@@ -1704,6 +1724,7 @@ img {
         .flex-y();
       }
       .header-top-right {
+        width: 426/@vw;
         margin-left: 30/@vw;
         p {
           font-size: 24/@vw;
@@ -1851,6 +1872,7 @@ img {
   top: 0;
   left: 0;
   background-color: rgba(0,0,0,0.8);
+  z-index: 10;
   .pop-body {
     .vw-w-h(580,360);
     background-color: #ffffff;

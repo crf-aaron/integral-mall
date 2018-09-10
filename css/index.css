@@ -1130,7 +1130,7 @@ img {
   height: 10.66666667vw;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #cccccc;
+  background-color: #ffffff;
   position: relative;
 }
 .collage-members .collage-members-list ul li .collage-members-list-left .collage-members-head-portrait img:nth-of-type(2) {
@@ -1218,7 +1218,7 @@ img {
   height: 16.53333333vw;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #cccccc;
+  background-color: #ffffff;
 }
 .mine .header .cont .cont-left .cont-left-txt {
   margin-left: 2.66666667vw;
@@ -1256,10 +1256,21 @@ img {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
-.mine .header .card > img {
-  width: 78.66666667vw;
+.mine .header .card > ul {
+  width: 89.33333333vw;
   height: 13.06666667vw;
   margin: 2.66666667vw auto 0;
+}
+.mine .header .card > ul > li {
+  float: left;
+  width: 25%;
+  height: 13.06666667vw;
+  line-height: 13.06666667vw;
+  text-align: center;
+}
+.mine .header .card > ul > li > img {
+  width: 11.46666667vw;
+  height: 13.06666667vw;
 }
 .mine .header .card .progress {
   margin-top: 1.33333333vw;
@@ -1287,6 +1298,12 @@ img {
   width: 20%;
   display: inline-block;
   text-align: left;
+}
+.mine .header .card .progress .progress-num span:nth-of-type(3) {
+  text-align: center;
+}
+.mine .header .card .progress .progress-num span:nth-of-type(4) {
+  text-align: right;
 }
 .mine .header .card .progress .progress-num span:last-child {
   text-align: right;
@@ -1591,6 +1608,9 @@ img {
   font-size: 3.2vw;
   color: #333333;
 }
+.wraper-integral {
+  top: 43.2vw;
+}
 /*个人资料*/
 .personal-data .header {
   width: 100%;
@@ -1607,7 +1627,7 @@ img {
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
-  background-color: #cccccc;
+  background-color: #ffffff;
 }
 .personal-data .header p {
   text-align: center;
@@ -1828,9 +1848,6 @@ img {
   line-height: 11.73333333vw;
   font-size: 3.73333333vw;
 }
-.record .record-list {
-  display: none;
-}
 .record .record-list ul li {
   width: 100%;
   background-color: #ffffff;
@@ -1850,6 +1867,7 @@ img {
   overflow: hidden;
 }
 .record .record-list ul li .record-list-top .record-list-top-right {
+  width: 44.26666667vw;
   margin-left: 4vw;
 }
 .record .record-list ul li .record-list-top .record-list-top-right p {
@@ -1956,6 +1974,7 @@ img {
   -webkit-align-items: center;
 }
 .order-detail .header .header-top .header-top-right {
+  width: 56.8vw;
   margin-left: 4vw;
 }
 .order-detail .header .header-top .header-top-right p {
@@ -2144,6 +2163,7 @@ img {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
 }
 .popup .pop-body {
   width: 77.33333333vw;
