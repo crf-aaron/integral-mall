@@ -28,6 +28,10 @@
         </div>
         <div class="header-bottom">
             <p>订单号：CRF88888888</p>
+            <div class="cam">
+                <p>卡密：<span id="camTxt">CRF88888888</span></p>
+                <button id="camBtn">复制</button>
+            </div>
         </div>
     </header>
     <div id="information"></div>
@@ -132,8 +136,8 @@
 <script>
     $(function () {
         var data = {};
-        data.status = '1';//未取消
-        //data.status = '0';//已取消
+        //data.status = '1';//未取消
+        data.status = '0';//已取消
         data.back = true;//取消订单，积分已返
 
         if(data.status == '1') {
@@ -144,7 +148,21 @@
             var html = template('cancelIformationTpl');
             $('#information').html(html);
         }
-
+        /*复制卡密*/
+        function copyCam() {
+            var camTxt = document.getElementById("camTxt").innerText;
+            var oInput = document.createElement('input');
+            oInput.value = camTxt;
+            document.body.appendChild(oInput);
+            oInput.select(); // 选择对象
+            document.execCommand("Copy"); // 执行浏览器复制命令
+            oInput.className = 'oInput';
+            oInput.style.display='none';
+            alert('复制成功');
+        }
+        $('#camBtn').on('click',function () {
+            copyCam();
+        })
     })
 </script>
 </body>

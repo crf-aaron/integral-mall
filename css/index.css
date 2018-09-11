@@ -1995,14 +1995,33 @@ img {
   margin-top: 4.8vw;
 }
 .order-detail .header .header-bottom {
-  height: 11.73333333vw;
-  line-height: 11.73333333vw;
+  height: 23.46666667vw;
   margin-top: 4vw;
   border-top: 0.13333333vw solid #e5e5e5;
 }
 .order-detail .header .header-bottom p {
   font-size: 3.2vw;
   color: #999999;
+}
+.order-detail .header .header-bottom p:nth-of-type(1) {
+  height: 11.73333333vw;
+  line-height: 11.73333333vw;
+}
+.order-detail .header .header-bottom .cam {
+  height: 6.66666667vw;
+  display: flex;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.order-detail .header .header-bottom .cam button {
+  width: 15.73333333vw;
+  height: 6.66666667vw;
+  font-size: 3.2vw;
+  color: #77481C;
+  background-color: #deba57;
+  border-radius: 1.06666667vw;
 }
 .order-detail .logistics-information {
   margin-top: 3.2vw;

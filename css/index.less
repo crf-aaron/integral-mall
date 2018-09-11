@@ -1745,13 +1745,29 @@ img {
       }
     }
     .header-bottom {
-      height: 88/@vw;
-      line-height: 88/@vw;
+      height: 176/@vw;
       margin-top: 30/@vw;
       border-top: 1/@vw solid #e5e5e5;
       p {
         font-size: 24/@vw;
         color: #999999;
+        &:nth-of-type(1) {
+          height: 88/@vw;
+          line-height: 88/@vw;
+        }
+      }
+      .cam {
+        height: 50/@vw;
+        .flex-y();
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+        button {
+          .vw-w-h(118,50);
+          font-size: 24/@vw;
+          color: #77481C;
+          background-color: #deba57;
+          border-radius: 8/@vw;
+        }
       }
     }
   }
